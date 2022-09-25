@@ -1,0 +1,12 @@
+---Command Prompt---
+sudo yum install git -y
+git clone https://github.com/lowchoonkeat/aws-live.git
+cd aws-live
+sudo pip3 install flask
+sudo pip3 install pymysql
+sudo python3 EmpApp.py
+
+---HeidiSQL---
+import employee.sql
+
+

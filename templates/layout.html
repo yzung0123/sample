@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Employee Management System</title>
+    <style>
+      table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+      }
+  
+      td, thead {
+          border: 1px solid #dddddd;
+          text-align: center;
+          padding: 8px;
+      }
+
+      thead {
+        background-color: cornflowerblue;
+        color: white;
+      }
+
+      ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+      }
+
+      li{
+        float: left;
+      }
+
+      li a{
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      li a:hover{
+        background-color: #111;
+      }
+  </style>
+  </head>
+  
+  <body>
+ 
+    <!-- NAVIGATION  -->
+    <nav class="navbar navbar-dark bg-dark">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/">Payroll</a></li>
+        <li><a href="/">Employee Leave Application</a></li>
+      </ul>
+    </nav>
+    
+ 
+    <div class="container pt-4">
+      {% block body %}
+      {% endblock %}
+    </div>
+  
+<script>
+const btnDelete= document.querySelectorAll('.btn-delete');
+if(btnDelete) {
+  const btnArray = Array.from(btnDelete);
+  btnArray.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      if(!confirm('Are you sure you want to delete it?')){
+        e.preventDefault();
+      }
+    });
+  })
+}
+ 
+$(document).ready(function() {
+    $('#example').DataTable({     
+      "aLengthMenu": [[3, 5, 10, 25, -1], [3, 5, 10, 25, "All"]],
+        "iDisplayLength": 3
+       } 
+    );
+} );
+ 
+</script>
+  </body>
+</html>
